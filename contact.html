@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Gayakwad Hospital & Netralaya</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Inline CSS -->
+    <style>
+
+body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f5f7;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+.navbar {
+    padding: 10px 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.navbar.scrolled {
+    background: #007bff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    transition: color 0.3s ease, transform 0.5s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: #dd3f3f;
+}
+
+/* Emergency Button Styling */
+.navbar-nav .Emergency .nav-link[href*="#"] {
+    background-color: #ff0800; /* Red background */
+    color: white;
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Emergency button */
+.navbar-nav .nav-item .nav-link[href*="Emergency"]:hover {
+    background-color: #c9302c; /* Darker red on hover */
+    transform: scale(1.05); /* Slight scale effect */
+}
+
+/* Active and Focused state for the Emergency button */
+.navbar-nav .nav-item .nav-link[href*="Emergency"]:focus,
+.navbar-nav .nav-item .nav-link[href*="Emergency"].active {
+    background-color: #c9302c; /* Same dark red for focus */
+    transform: scale(1.05);
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border-color: #007bff; /* Blue border for the hamburger icon */
+}
+
+.navbar-toggler-icon {
+    background-color: #007bff; /* Blue hamburger icon */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item .nav-link {
+        font-size: 1.2rem;
+    }
+
+    /* Adjust Emergency button size on mobile */
+    .navbar-nav .nav-item .nav-link[href*="Emergency"] {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    /* Adjust padding and font size in smaller screens */
+    .navbar-nav .nav-item .nav-link {
+        padding: 8px 12px;
+    }
+}
+
+
+        /* Navbar Links */
+        .navbar-nav .nav-link {
+            font-size: 1.2rem;
+            color: #007bff;
+            margin-left: 20px;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background-color: #007bff;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #d62121;
+            transform: translateY(-3px);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            transition: background-color 0.4s, transform 0.4s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        /* Navbar Toggler */
+        .navbar-toggler {
+            border: none;
+            outline: none;
+            background: transparent;
+            transition: transform 0.4s ease;
+        }
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f4f5f7;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+/* Submit Button */
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Contact Info Section */
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.contact-info .info-item {
+    background-color: #f4f5f7;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info .info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info .info-item i {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.contact-info .info-item h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-info .info-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Embed container */
+.map-container {
+    width: 100%; /* Make the map responsive */
+    max-width: 1200px; /* Set a maximum width for large screens */
+    margin: 0 auto; /* Center the map horizontally */
+    padding: 20px;
+}
+
+/* Embedded map iframe styling */
+.map-container iframe {
+    width: 100%; /* Make the iframe responsive */
+    height: 450px; /* Set a fixed height for the map */
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners for the map */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Optional: Make the map responsive on mobile */
+@media (max-width: 768px) {
+    .map-container iframe {
+        height: 300px; /* Decrease the height on small screens */
+    }
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 0px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+footer .social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #007bff;
+}
+
+footer p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Responsive Footer Adjustments */
+@media (max-width: 768px) {
+    footer {
+        padding: 0px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Gayakwad Hospital & Netralaya</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="Emergency">
+                        <a class="nav-link" href="emergency.html">Emergency</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="contact-title">Get in Touch</h2>
+
+            <!-- Contact Info (Address, Phone, Email) -->
+            <div class="contact-info row">
+                <div class="col-md-2">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Our Address</h3>
+                    <p>Maa Bhavani Squar Kolte Layout, Godhani Road, Nagpur, Maharashtra 441123</p>
+                </div>
+                <div class="col-md-2">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Call Us</h3>
+                    <p>+91 9834167602</p>
+                </div>
+                <div class="col-md-2">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>gayakwadhospital123@gmail.com</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form action="submit_form.php" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Google Map Location -->
+            <div class="map-container">
+                <h3>Find Us on the Map</h3>
+                <!-- Google Maps Embed Code (Replace with your location URL) -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.420312283941!2d79.0603953750293!3d21.21517518135013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c31c60fb73a9%3A0xfe1c0611c73296e5!2sGAYAKWAD%20HOSPITAL%20%26%20NETRALAYA!5e0!3m2!1sen!2sin!4v1731099020602!5m2!1sen!2sin"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Your Company. All Rights Reserved.</p>
+            <p>
+                <a href="#">Home</a> | 
+                <a href="#">Gallery</a> | 
+                <a href="#">Services</a> | 
+                <a href="#">Emergency</a> | 
+                <a href="#">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Include FontAwesome for Icons (optional) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

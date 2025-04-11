@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gayakwad Hospital & Netralaya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f5f7;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+.navbar {
+    padding: 10px 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.navbar.scrolled {
+    background: #007bff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    transition: color 0.3s ease, transform 0.5s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: #dd3f3f;
+}
+
+/* Emergency Button Styling */
+.navbar-nav .Emergency .nav-link[href*="#"] {
+    background-color: #ff0800; /* Red background */
+    color: white;
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Emergency button */
+.navbar-nav .nav-item .nav-link[href*="Emergency"]:hover {
+    background-color: #c9302c; /* Darker red on hover */
+    transform: scale(1.05); /* Slight scale effect */
+}
+
+/* Active and Focused state for the Emergency button */
+.navbar-nav .nav-item .nav-link[href*="Emergency"]:focus,
+.navbar-nav .nav-item .nav-link[href*="Emergency"].active {
+    background-color: #c9302c; /* Same dark red for focus */
+    transform: scale(1.05);
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border-color: #007bff; /* Blue border for the hamburger icon */
+}
+
+.navbar-toggler-icon {
+    background-color: #007bff; /* Blue hamburger icon */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item .nav-link {
+        font-size: 1.2rem;
+    }
+
+    /* Adjust Emergency button size on mobile */
+    .navbar-nav .nav-item .nav-link[href*="Emergency"] {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    /* Adjust padding and font size in smaller screens */
+    .navbar-nav .nav-item .nav-link {
+        padding: 8px 12px;
+    }
+}
+
+
+        /* Navbar Links */
+        .navbar-nav .nav-link {
+            font-size: 1.2rem;
+            color: #007bff;
+            margin-left: 20px;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background-color: #007bff;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #d62121;
+            transform: translateY(-3px);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            transition: background-color 0.4s, transform 0.4s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        /* Navbar Toggler */
+        .navbar-toggler {
+            border: none;
+            outline: none;
+            background: transparent;
+            transition: transform 0.4s ease;
+        }
+
+        .navbar-toggler:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(to right, rgba(0, 123, 255, 0.8) 0%, rgba(0, 123, 255, 0.6) 40%, rgba(0, 123, 255, 0.2) 60%, transparent 100%),
+            url('Assets/Screenshot\ 2024-10-14\ at\ 21.52.49.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding-left: 50px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-hero {
+            font-size: 1.2rem;
+            padding: 10px 30px;
+            background-color: #fff;
+            color: #007bff;
+            border-radius: 50px;
+        }
+
+/* Services Section */
+.services-section {
+    padding: 60px 0;
+    background-color: #fff;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.services-section.visible {
+    opacity: 1; /* Visible on scroll */
+    transform: translateY(0); /* Move to original position */
+}
+
+.services-section h2 {
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-align: center;
+    color: #007bff;
+}
+
+.service-item {
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f5f7;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.service-item h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.service-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Styling for the "See All Services" button */
+.services-section .btn-primary {
+    background-color: #007bff; /* Blue background */
+    border-color: #007bff;     /* Blue border */
+    padding: 12px 30px;        /* Add padding to make it bigger */
+    font-size: 18px;           /* Make text larger */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.services-section .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #004085;     /* Darker border on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .services-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-item h4 {
+        font-size: 1.3rem;
+    }
+
+    .service-item p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Service Card Container */
+.service-card {
+    width: 250px; /* Set a fixed width for the cards */
+    height: 350px; /* Set a fixed height for the cards */
+    overflow: hidden; /* Hide anything that overflows the card */
+    margin: 10px; /* Space between cards */
+    border: 1px solid #ccc; /* Border around each card */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Image inside the card */
+.service-card img {
+    width: 100%; /* Ensure the image fills the card width */
+    height: 150px; /* Fixed height for the image */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+}
+
+/* Text content inside the card */
+.service-card .content {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Statistics Section Styles */
+.stats-section {
+    background-color: #fff;
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding: 60px 0; /* Adds padding to create space above and below */
+    color: #fff; /* Makes text white for contrast on dark backgrounds */
+}
+
+.stat-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2a676d; /* Dark teal color for contrast */
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #333; /* Dark gray for legibility */
+}
+
+
+
+/* Ayurveda & Panchakarma Section */
+.ayurveda-panchakarma-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: #007bff;
+}
+
+/* Style for Ayurveda & Panchakarma items */
+.ayurveda-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.ayurveda-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ayurveda-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.ayurveda-item h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.ayurveda-item p {
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+/* Responsive Layout */
+@media (max-width: 767px) {
+    .ayurveda-item img {
+        height: 200px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+/* Ratings Section */
+.ratings-section {
+    background-color: #ffffff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.ratings-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.ratings-section p {
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.ratings-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.rating-item {
+    background: #fff;
+    padding: 30px;
+    width: 45%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.rating-item:hover {
+    transform: translateY(-10px);
+}
+
+.rating-logo {
+    margin-bottom: 20px;
+}
+
+.rating-logo-img {
+    max-width: 120px;
+    height: auto;
+}
+
+.rating-details .star-rating {
+    margin-bottom: 15px;
+}
+
+.star-rating img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+
+.rating-details p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .ratings-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rating-item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .rating-logo-img {
+        max-width: 100px;
+    }
+
+    .star-rating img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+
+/* Testimonial Section Styling */
+.testimonials-section {
+    background-color: #ffffff;
+    padding: 50px 0;
+}
+
+.testimonial-item {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.testimonial-content {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 3px solid #007bff;
+}
+
+.testimonial-author h5 {
+    font-size: 18px;
+    color: #007bff;
+}
+
+.testimonial-item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 10px;
+    border-right-color: #fff;
+    transform: translateY(-50%);
+}
+
+/* Adjust layout of testimonials */
+.testimonials-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.testimonials-section .col-md-6 {
+    width: 45%;
+}
+
+.testimonials-section .col-md-6.d-flex.justify-content-end {
+    justify-content: flex-end;
+}
+
+.testimonials-section .col-md-6.d-flex.justify-content-start {
+    justify-content: flex-start;
+}
+
+
+/* Award Recognition Section with Larger Content */
+.award-recognition-section {
+    position: relative;
+    padding: 100px 20px; /* Increased padding for a more spacious layout */
+    background: url('Assets/Award\ Background.avif') center center / cover no-repeat;
+    color: #fff;
+    text-align: center;
+}
+
+/* Optional overlay for readability */
+.award-recognition-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust overlay transparency */
+    z-index: 1;
+}
+
+.award-recognition-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px; /* Increased width for larger content */
+    margin: auto;
+}
+
+.award-recognition-section h2 {
+    font-size: 3rem; /* Larger heading */
+    color: #ffd700; /* Gold color for emphasis */
+    margin-bottom: 30px;
+}
+
+.award-category {
+    font-size: 1.5rem; /* Larger category text */
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.award-image img {
+    width: 100%;
+    max-width: 600px; /* Larger award image */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Slightly bigger shadow for emphasis */
+    margin: 30px auto;
+}
+
+.award-details {
+    font-size: 1.3rem; /* Larger details text */
+    line-height: 1.8;
+    max-width: 800px; /* Adjust for larger content width */
+    margin: 30px auto;
+}
+
+
+
+
+
+/* Styles for Contact Section */
+    .contact-section {
+        background-color: #f9fafb;
+        border-top: 4px solid #007bff;
+    }
+
+    .contact-section .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+        margin-bottom: 30px;
+    }
+
+    .contact-section p {
+        font-size: 1.1rem;
+        color: #666;
+    }
+
+    .contact-section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .contact-section ul li {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .contact-section .fa {
+        margin-right: 10px;
+    }
+
+    /* Add CSS styling for the button */
+    .cta-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .cta-button {
+        background-color: #007BFF; /* Blue color */
+        color: white;
+        font-size: 16px;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+
+        /* Basic Styling for the Footer */
+footer {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Styling */
+.footer-links, .footer-contact, .footer-social-media {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.footer-links h3, .footer-contact h3, .footer-social-media h3 {
+  color: #007BFF;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+/* Styling for Links */
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer li {
+  margin: 8px 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #e74c3c;
+}
+
+/* Styling for Social Media Links */
+.footer-social-media ul {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social-media a {
+  font-size: 16px;
+}
+
+/* Styling for Copyright Section */
+.footer-copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.footer-copyright p {
+  margin: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .footer-links, .footer-contact, .footer-social-media {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+    </style>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Gayakwad Hospital & Netralaya</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="Emergency">
+                        <a class="nav-link" href="emergency.html">Emergency</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Quality Healthcare, Trusted Care</h1>
+                <p>Gayakwad Hospital & Netralaya is dedicated to providing advanced healthcare with a patient-first approach.</p>
+                <a href="#" class="btn btn-hero">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+<!-- Services Section -->
+<section class="services-section" id="services">
+    <div class="container">
+        <h2>Our Specialties</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="service-item">
+                    <img src="Assets/Cardiology.png" alt="Cardiology">
+                    <h4>Cardiology</h4>
+                    <p>State-of-the-art cardiac care for heart diseases and conditions.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-item">
+                    <img src="Assets/opthalmology.png" alt="Ophthalmology">
+                    <h4>Ophthalmology</h4>
+                    <p>Comprehensive eye care services, surgeries, and vision correction.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-item">
+                    <img src="Assets/Orthopedics.png" alt="Orthopedics">
+                    <h4>Orthopedics</h4>
+                    <p>Advanced treatments for bone, joint, and muscular problems.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-item">
+                    <img src="Assets/General Surgery.png" alt="General Surgery">
+                    <h4>General Surgery</h4>
+                    <p>Expert surgical care for a wide range of conditions by our experienced surgeons.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-item">
+                    <img src="Assets/Ksharsutra.avif" alt="Ksharsutra">
+                    <h4>Ksharsutra / Piles Laser Cetre</h4>
+                    <p>Effective, minimally invasive treatment for piles using Ksharsutra therapy and advanced laser technology.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-item">
+                    <img src="Assets/pediatrics.png" alt="Pediatrics">
+                    <h4>Pediatrics</h4>
+                    <p>Compassionate care for infants, children, and adolescents.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button to see all services and facilities -->
+    <div class="text-center mt-4">
+        <a href="#services" class="btn btn-primary btn-lg">See All Services and Facilities</a>
+    </div>
+
+</section>
+
+
+<section class="stats-section py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 mb-4">
+                <div class="stat-card">
+                    <img src="Assets/medical expert.webp" alt="Medical Experts Icon" class="stat-icon">
+                    <h3 class="stat-number">25+</h3>
+                    <p class="stat-label">Team of Medical Experts</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-card">
+                    <img src="Assets/Happy patient.webp" alt="Happy Patients Icon" class="stat-icon">
+                    <h3 class="stat-number">15,000+</h3>
+                    <p class="stat-label">Happy Patients</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-card">
+                    <img src="Assets/successful surgeries.webp" alt="Surgeries Icon" class="stat-icon">
+                    <h3 class="stat-number">7,000+</h3>
+                    <p class="stat-label">Successful Surgeries</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-card">
+                    <img src="Assets/experience.webp" alt="Experience Icon" class="stat-icon">
+                    <h3 class="stat-number">10+</h3>
+                    <p class="stat-label">Years of Experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Ayurveda & Panchakarma Section -->
+<section class="ayurveda-panchakarma-section" id="ayurveda">
+    <div class="container">
+        <h2 class="section-title">Ayurveda & Panchakarma</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4" data-aos="fade-right">
+                <div class="ayurveda-item">
+                    <img src="Assets/Ayurveda.png" alt="Ayurveda Treatment" class="img-fluid">
+                    <h4>Ayurveda Treatment</h4>
+                    <p>Experience holistic healing with our traditional Ayurvedic treatments that promote overall well-being and restore balance to the body.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4" data-aos="fade-left">
+                <div class="ayurveda-item">
+                    <img src="Assets/Panchakarma.png" alt="Panchakarma" class="img-fluid">
+                    <h4>Panchakarma</h4>
+                    <p>Detoxify and rejuvenate your body with our authentic Panchakarma therapy, designed to cleanse the body and mind, providing relief from stress and ailments.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mb-4" data-aos="fade-up">
+                <div class="ayurveda-item">
+                    <img src="Assets/shirodhara.webp" alt="Shirodhara Therapy" class="img-fluid">
+                    <h4>Shirodhara Therapy</h4>
+                    <p>Experience Shirodhara, where warm herbal oil is poured on the forehead, balancing the nervous system and soothing the mind.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Ratings Section -->
+<section class="ratings-section" id="ratings">
+    <div class="container">
+        <h2>What Our Patients Say</h2>
+        <p>We take pride in providing excellent care and service. Here’s what our patients have to say:</p>
+        <div class="ratings-content">
+            <div class="rating-item">
+                <div class="rating-logo">
+                    <img src="Assets/google.png" alt="Google" class="rating-logo-img">
+                </div>
+                <div class="rating-details">
+                    <div class="star-rating">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                    </div>
+                    <p>4.8 Rating on <strong>Google</strong></p>
+                </div>
+            </div>
+            <div class="rating-item">
+                <div class="rating-logo">
+                    <img src="Assets/justdial.png" alt="Justdial" class="rating-logo-img">
+                </div>
+                <div class="rating-details">
+                    <div class="star-rating">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                        <img src="Assets/Golden Star full.png" alt="Star">
+                    </div>
+                    <p>4.7 Rating on <strong>Justdial</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonies Section -->
+<section class="testimonials-section" id="testimonials">
+    <div class="container">
+        <div class="row">
+            <!-- First Testimonial (right side) -->
+            <div class="col-md-6 d-flex justify-content-end mb-4">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"I was admitted to this hospital and was pleasantly surprised by the kindness and care shown by everyone. The doctors took great care of me, always explaining things clearly and ensuring I was comfortable. Even the staff were so attentive, checking in on me regularly. I felt very well taken care of, and with their help, I'm feeling much better now. Thank you so much for everything!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="Assets/Gaurav.jpeg" alt="Gaurav Phalak" class="testimonial-img">
+                        <h5>Gaurav Phalak, 32</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Testimonial (down to left) -->
+            <div class="col-md-6 d-flex justify-content-start mb-4">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"I was admitted to Gayakwad Hospital for treatment, and I felt so comfortable, like I was at home. The doctors treated me with so much care, like I was their own family. It felt so warm and loving. Even the doctor’s little daughter became very attached to me, playing and talking with me. It was so sweet, and it made me feel like I was part of their family. Thanks to all the care and love I received, I am fully cured now and feel so much better."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="Assets/Old Lady.jpg" alt="Aruna Dalvi" class="testimonial-img">
+                        <h5>Aruna Dalvi, 71</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Third Testimonial (down to right) -->
+            <div class="col-md-6 d-flex justify-content-end mb-4">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"I had my surgery here and the entire process was smooth. The team explained everything clearly, and I felt very comfortable. Im grateful for the excellent care!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="Assets/Shrinidhi.jpg" alt="Shrinidhi Salve" class="testimonial-img">
+                        <h5>Shrinidhi Salve, 48</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Fourth Testimonial (down to right) -->
+            <div class="col-md-6 d-flex justify-content-end mb-4">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"गायकवाड हॉस्पिटलमध्ये माझ्या उपचारांचा अनुभव अत्यंत चांगला होता. डॉक्टरांची आणि इतर सर्व कर्मचाऱ्यांची वागणूक खूपच दिलखुलास होती. मी उपचार घेत असताना त्यांच्याकडून मिळालेली काळजी आणि सहकार्य खूपच दिलासादायक होते. खूप आरामदायक वातावरण आणि एक उत्तम अनुभव."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="Assets/Ravi Patil.jpg" alt="Ravi D. Patil" class="testimonial-img">
+                        <h5>Ravi D. Patil, 67</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Award Recognition Section -->
+<section class="award-recognition-section" id="award">
+    <div class="container text-center">
+        <h2>Award for Excellence in Healthcare</h2>
+        <p class="award-category">Excellence in Affordable Healthcare in Rural and Urban Nagpur</p>
+        <div class="award-image" data-aos="fade-up">
+            <!-- Award Image -->
+        <div class="award-image">
+            <img src="Assets/Award.jpeg" alt="UCN Business Excellence Award Presentation">
+        </div>
+        </div>
+        <div class="award-details" data-aos="fade-up" data-aos-delay="100">
+            <!-- Award Details -->
+        <div class="award-details">
+            <p>This prestigious award was presented at the <strong>UCN Business Excellence Award 2023</strong> ceremony. 
+            Hon'ble Minister <strong>Shri. Nitin Gadkari</strong> felicitated <strong>Dr. Nishant M. L. Gayakwad</strong> and 
+            <strong>Dr. Suprabha Nishant Gayakwad</strong> for their exemplary contributions to accessible healthcare services.</p>
+        </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+<section class="contact-section py-5" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-title text-center text-primary">Contact Us</h2>
+                <p class="text-center mb-4">If you have any questions, concerns, or would like more information, feel free to get in touch with us.</p>
+                <ul class="list-unstyled text-center">
+                    <li><i class="fas fa-map-marker-alt text-primary"></i> Maa Bhavani Squar Kolte Layout, Godhani Road, Nagpur, Maharashtra 441123</li>
+                    <li><i class="fas fa-phone-alt text-primary"></i> +91 9834167602</li>
+                    <li><i class="fas fa-envelope text-primary"></i> gayakwadhospital123@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Button to navigate to the Contact page -->
+<div class="cta-container">
+    <a href="contact.html" class="cta-button">Explore Our Contact Details and Form</a>
+</div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+      <!-- Footer Links Section -->
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="emergency.html">Emergency</a></li>
+          <li><a href="services.html">Our Services</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Details Section -->
+      <div class="footer-contact">
+        <h3>Contact Details</h3>
+        <p><strong>Phone:</strong> +91 9834167602</p>
+        <p><strong>Email:</strong> gayakwadhospital123@gmail.com</p>
+        <p><strong>Address:</strong> Maa Bhavani Squar Kolte Layout, Godhani Road, Nagpur, Maharashtra 441123</p>
+      </div>
+  
+      <!-- Social Media Section -->
+      <div class="footer-social-media">
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="https://www.facebook.com/p/Gayakwad-Hospital-Netralaya-100076402351873/" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/gayakwadhospital/" target="_blank">Instagram</a></li>
+          <li><a href="https://jsdl.in/DT-451JJJKTVXI" target="_blank">JustDial</a></li>
+        </ul>
+      </div>
+  
+      <!-- Copyright Section -->
+      <div class="footer-copyright">
+        <p>&copy; 2024 GAYAKWAD HOSPITAL & NETRALAYA. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript for scroll reveal -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const servicesSection = document.getElementById("services");
+
+        function revealOnScroll() {
+            const sectionTop = servicesSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight - 100) {
+                servicesSection.classList.add("visible");
+                window.removeEventListener("scroll", revealOnScroll);
+            }
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+    });
+
+        // Initialize AOS (Animate On Scroll) animations
+        AOS.init({
+        duration: 1000, // Duration of animation
+        once: true, // Animation happens only once
+    });
+    
+</script>
+</body>
+
+</html>
