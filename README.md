@@ -6,7 +6,7 @@ A modern, fully responsive hospital website designed to enhance the patient expe
 ---
 
 ## 🌐 Live Website
-[🔗 Visit the Website]([#](https://maitreyatayade.github.io/hospital-website/)) <!-- Add the live link here -->
+[🔗 Visit the Website]([https://maitreyatayade.github.io/hospital-website/]) <!-- Add the live link here -->
 
 ---
 
