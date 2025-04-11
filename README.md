@@ -2,12 +2,11 @@
 
 A modern, fully responsive hospital website designed to enhance the patient experience and streamline online interactions.
 
-![Website Preview](https://via.placeholder.com/800x400?text=Website+Preview) <!-- Replace with an actual screenshot -->
 
 ---
 
 ## 🌐 Live Website
-[🔗 Visit the Website](#) <!-- Add the live link here -->
+[🔗 Visit the Website]([#](https://maitreyatayade.github.io/hospital-website/)) <!-- Add the live link here -->
 
 ---
 
@@ -34,9 +33,9 @@ A modern, fully responsive hospital website designed to enhance the patient expe
 ## 🚀 Getting Started
 
 ### Clone the Repository
-bash
+'''bash
 git clone https://github.com/MaitreyaTayade/hospital-website.git
-cd hospital-website
+cd hospital-website'''
 
 Run Locally
 Simply open index.html in your browser.
@@ -47,15 +46,6 @@ This website is hosted using GitHub Pages. To deploy updates:
 Make necessary changes.
 Commit and push changes to the main branch.
 GitHub Pages will automatically update the live site.
-📷 Screenshots
-Homepage
-Homepage Screenshot <!-- Replace with actual screenshots -->
-
-Services Page
-Services Page Screenshot <!-- Replace with actual screenshots -->
-
-Appointment Form
-Appointment Form Screenshot <!-- Replace with actual screenshots -->
 
 📬 Contact
 📧 Email: maitreyatayade@gmail.com
